@@ -1,4 +1,5 @@
 const User = require("../models/user");
+const Campground = require("../models/campground");
 
 module.exports.renderRegisterForm = (req, res) => {
     res.render("users/register");
@@ -36,4 +37,10 @@ module.exports.logoutUser = (req, res) => {
         req.flash("success", "Logged Out Good Bye!!");
         res.redirect("/campgrounds");
     });
+}
+
+module.exports.myCampgroundsIndex = async(req, res) => {
+    const id = res.locals.currentUser._id;
+    const campgrounds = await Campground.find({ author: { $in: id } });
+    res.render("users/mycampgrounds", { campgrounds });
 }
