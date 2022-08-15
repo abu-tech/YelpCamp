@@ -1,0 +1,35 @@
+<div class="flashes">
+    <% if (success && success.length){ %>
+        <div class="col-6 offset-3">
+            <div class="ui success message rounded">
+                <i class=" close icon " style="user-select: auto; "></i>
+                <div class="header" style="user-select: auto; ">
+                    <%= success %>
+                </div>
+            </div>
+        </div>
+        <% } %>
+
+            <% if (error && error.length){ %>
+                <div class="col-6 offset-3 ">
+                    <div class="ui error message rounded ">
+                        <i class="close icon " style="user-select: auto; "></i>
+                        <div class="header" style="user-select: auto; ">
+                            <%= error %>
+                        </div>
+                    </div>
+                </div>
+                <% } %>
+
+                    <% if (userSuccess && userSuccess.length){ %>
+                        <div class="col-6 offset-3 ">
+                            <div class="ui olive message rounded">
+                                <i class="close icon " style="user-select: auto; "></i>
+                                <div class="header" style="user-select: auto; ">
+                                    <%= userSuccess %>
+                                        <%= currentUser.username %>
+                                </div>
+                            </div>
+                        </div>
+                        <% } %>
+</div>

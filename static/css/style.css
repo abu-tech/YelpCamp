@@ -1,0 +1,63 @@
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* map styling */
+
+#map {
+    height: 40vh;
+    width: 100%;
+}
+
+#cluster-map {
+    height: 50vh;
+    width: 100%;
+}
+
+
+/* campgrounds/index  */
+
+.camp-card {
+    margin: 10px;
+}
+
+@media (min-width: 1200px) {
+    .camp-card {
+        width: 45%;
+    }
+}
+
+
+/* transition */
+
+.hover {
+    transition: all 0.22s ease-in-out;
+}
+
+
+/* flash alerts  */
+
+.flashes {
+    max-width: 750px;
+    min-width: 10vw;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+
+/* validation */
+
+.invalid-text {
+    color: #ea061d;
+}
+
+
+/* new & edit forms  */
+
+.custom-file-label {
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    color: #000a;
+}

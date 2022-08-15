@@ -1,0 +1,52 @@
+<% layout("layouts/boilerplate") %>
+    <div>
+        <div id="cluster-map"></div>
+    </div>
+    <div class="container mx-auto">
+        <div class="mt-2">
+            <%- include("../partials/flash") %>
+        </div>
+        <h1 class="text-center mb-4 mt-0">Campgrounds</h1>
+        <section class="row d-flex justify-content-center">
+            <% for(let campground of campgrounds.docs){ %>
+                <div class="card rounded g-0 camp-card hover">
+                    <div class="row g-0">
+                        <div class="col-md-6">
+                            <% if (campground.images.length){ %>
+                                <img src="<%= campground.images[0].crop %>" class="img-fluid rounded-start">
+                                <% }else{ %>
+                                    <img src="" alt="noimage" class="img-fluid rounded-start">
+                                    <% } %>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <%= campground.title %>
+                                </h5>
+                                <p class="card-text">
+                                    <%= campground.description.substring(0,30) %>....
+                                </p>
+                                <p class="card-text">
+                                    <small class="text-muted"><%= campground.location %></small>
+                                </p>
+                                <a class="ui animated button" href="/campgrounds/<%= campground._id %> " tabindex="0">
+                                    <div class="visible content">View Details</div>
+                                    <div class="hidden content">
+                                        <i class="right arrow icon"></i>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <% } %>
+        </section>
+        <%- include("../partials/paginate") %>
+    </div>
+    <script>
+        const mapToken = "<%-process.env.MAPBOX_TOKEN%>";
+        const campgrounds = {
+            features: <%-JSON.stringify(allCampgrounds)%>
+        }
+    </script>
+    <script src="/js/clustermap.js"></script>

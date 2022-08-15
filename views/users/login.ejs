@@ -1,0 +1,30 @@
+<% layout("layouts/boilerplate") %>
+    <div class="container mt-2">
+        <%- include("../partials/flash") %>
+    </div>
+    <div class="container d-flex justify-content-center align-items-center mt-4">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="card shadow-lg rounded mb-5">
+                    <img src="https://images.unsplash.com/photo-1446729444801-31245ddba81a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" class="card-img-top" alt="ERROR">
+                    <div class="card-body">
+                        <h2 class="card-title">Login</h2>
+                        <form action="/login" method="post" class="ui form">
+                            <div class="field">
+                                <label for="username"><i class="user secret icon" style="user-select: auto;"></i>Username</label>
+                                <input type="text" name="username" id="username" placeholder="username" autofocus>
+                            </div>
+                            <div class="field">
+                                <label for="passwword"><i class="key icon" style="user-select: auto;"></i>Password</label>
+                                <input type="password" name="password" id="password" placeholder="password">
+                            </div>
+                            <button class="ui button">Log In</button>
+                            <a href="/campgrounds" class="ui button black">Cancel</a>
+                            <p class="text-muted">New User? <a href="/register">SignUp</a></p>
+                            <div class="ui error message"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,39 @@
+<% layout("layouts/boilerplate") %>
+    <div class="container mt-3 mx-auto">
+        <%- include("../partials/flash") %>
+            <div class="row">
+                <h1 class="text-center">New Campground</h1>
+                <div class="col-md-6 offset-md-3 shadow p-3 mb-5 bg-body rounded">
+                    <form action="/campgrounds" method="POST" class="ui form" enctype="multipart/form-data">
+                        <div class="field">
+                            <label for="title">Enter Title</label>
+                            <input type="text" name="campground[title]" id="title" placeholder="Title">
+                        </div>
+                        <div class="field">
+                            <label for="location">Location</label>
+                            <input type="text" name="campground[location]" id="location" placeholder="Location">
+                        </div>
+                        <div class="field">
+                            <label for="price">Price</label>
+                            <div class="ui right labeled input">
+                                <label for="price" class="ui label" style="user-select: auto;">&#x20B9;</label>
+                                <input type="text" placeholder="Amount / Night" id="price" name="campground[price]" style="user-select: auto;">
+                                <div class="ui basic label" style="user-select: auto;">.00</div>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label for="image" class="form-label">Add Images</label>
+                            <input class="form-control" type="file" id="image" name="image" multiple>
+                            <p class="custom-file-label">Maximum of 3 images</p>
+                        </div>
+                        <div class="field">
+                            <label for="description">Description</label>
+                            <textarea name="campground[description]" id="description" placeholder="Description"></textarea>
+                        </div>
+                        <button class="ui button add-images">Add Campground</button>
+                        <div class="ui error message"></div>
+                    </form>
+                    <a href="/campgrounds" class="ui button red mt-3 mb-2">Cancel</a>
+                </div>
+            </div>
+    </div>
