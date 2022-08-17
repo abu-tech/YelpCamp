@@ -7,7 +7,7 @@ module.exports.index = async(req, res) => {
     const allCampgrounds = await Campground.find({});
     const campgrounds = await Campground.paginate({}, {
         page: req.query.page || 1,
-        limit: 10,
+        limit: 9,
         sort: "-_id",
     });
     campgrounds.page = Number(campgrounds.page);
